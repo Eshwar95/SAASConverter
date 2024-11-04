@@ -6,8 +6,8 @@ import time
 # Set your OpenAI API key here
 deployment_name="gpt-35-turbo-16k"
 openai.api_type = "azure"
-openai.api_key = "test" #os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
-openai.api_base = "round.openai.azure.com/"  # Replace with your Azure OpenAI endpoint
+openai.api_key = "9c1a8daa826c4abab74f38cff791f231" #os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
+openai.api_base = "https://myfirstopenaiplayground.openai.azure.com/"  # Replace with your Azure OpenAI endpoint
 openai.api_version = "2024-06-01"  # Ensure the API version matches the one in your Azure Portal
 
 # Function to extract the contents of a zip file
