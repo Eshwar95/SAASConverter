@@ -7,19 +7,25 @@ def extractFolder(filepath,extractedPath):
     with zipfile.ZipFile(filepath, 'r') as zObject:
         zObject.extractall(path=extractedPath)
     # Convert extractedPath to a Path object
-    dir_path = Path(extractedPath+'\\testcode')
-
+    dir_path = Path(extractedPath+'\\test_code')
     return dir_path
+
+def read_folder():
+    for root, dirs, files in os.walk(dir):
+        for name in files:
+            print(name)
+            return 0
+    return 1
 
 def generate_respone(filecontent):
     try:
         client = AzureOpenAI(
-            api_key="API_KEY",
-            api_version="version",
-            azure_endpoint='AZUREURL'
+            api_key="key",
+        api_version="version",
+        azure_endpoint='endpoint'
             )
         chat_completion = client.chat.completions.create(
-            model="gpt", # model = "deployment_name".
+            model="model", # model = "deployment_name".
             messages=[
                 { "role": "system", "content": "Generate unit tests for the python code provided. Provide only the code, do not provide any explanations" },
                 {
@@ -48,17 +54,17 @@ def process_model(file_path,extractedPath ):
         print(f'Directory created: {test_directory_path}')
     except Exception as e:
         print(f'Error creating directory: {e}')
-    for file_path in dir_path.iterdir():
-        if file_path.is_file():
-            # generate_respone(file_path)
-            f = open(file_path, "r")
-            filename = os.path.basename(file_path)
-            response = generate_respone(f.read())
-            write_to_file(test_directory_path,response, filename)
-            # print(f'Processing file: {file_path}')
+
+    dir = extractedPath +'\\test_code'
+    for root, dirs, files in os.walk(dir):
+        for fileName in files:
+            with open(os.path.join(root, fileName)) as f:
+                response = generate_respone(f.read())
+                write_to_file(test_directory_path,response, fileName)
+                
     print('Test Generation Completed!')
 
 
-file_path = r'C:\Users\User\Desktop\Learning\HackathonPrep\testcode.zip'
-extractedPath = r'C:\Users\User\Desktop\Learning\HackathonPrep\testcode'
+file_path = r'\HackathonPrep\test_code.zip'
+extractedPath = r"\HackathonPrep\test_code"
 process_model(file_path, extractedPath)
