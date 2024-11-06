@@ -10,19 +10,12 @@ def extractFolder(filepath,extractedPath):
     dir_path = Path(extractedPath+'\\test_code')
     return dir_path
 
-def read_folder():
-    for root, dirs, files in os.walk(dir):
-        for name in files:
-            print(name)
-            return 0
-    return 1
-
 def generate_respone(filecontent):
     try:
         client = AzureOpenAI(
             api_key="key",
         api_version="version",
-        azure_endpoint='endpoint'
+        azure_endpoint='test'
             )
         chat_completion = client.chat.completions.create(
             model="model", # model = "deployment_name".
@@ -59,12 +52,14 @@ def process_model(file_path,extractedPath ):
     for root, dirs, files in os.walk(dir):
         for fileName in files:
             with open(os.path.join(root, fileName)) as f:
+                print(fileName)
                 response = generate_respone(f.read())
+                print(response)
                 write_to_file(test_directory_path,response, fileName)
                 
     print('Test Generation Completed!')
 
 
-file_path = r'\HackathonPrep\test_code.zip'
-extractedPath = r"\HackathonPrep\test_code"
+file_path = r'\test_code.zip'
+extractedPath = r"\test_code"
 process_model(file_path, extractedPath)
