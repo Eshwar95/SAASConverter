@@ -255,3 +255,4 @@ elif menu_option == "Document Creation":
                 st.warning(f"Error generating summary: {e}")
         else:
             st.warning("No content found to summarize.")
+            
