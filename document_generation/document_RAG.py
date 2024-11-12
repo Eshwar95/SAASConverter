@@ -8,15 +8,15 @@ import time
 
 deployment_name="gpt-35-turbo-16k"
 openai.api_type = "azure"
-openai.api_key = "test"#os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
-openai.api_base = "test"  # Replace with your Azure OpenAI endpoint
-openai.api_version = "2024-06-01"  # Ensure the API version matches the one in your Azure Portal
+openai.api_key = "test"
+openai.api_base = "https://myfirstopenaiplayground.openai.azure.com/"
+openai.api_version = "2024-06-01"
 
 if "AZURE_OPENAI_API_KEY" not in os.environ:
    os.environ["AZURE_OPENAI_API_KEY"] = getpass.getpass(
        "test"
    )
-os.environ["AZURE_OPENAI_ENDPOINT"] = "test"
+os.environ["AZURE_OPENAI_ENDPOINT"] = "https://myfirstopenaiplayground.openai.azure.com/"
 
 # Step 1: Generate Embeddings for Query
 def get_query_embedding(query):
@@ -82,7 +82,7 @@ conversation_history = []
 summary = ""
 
 queries=[
-    "What does the code do?"]
+    "$Text"]
 
 for query in queries:
     answer, conversation_history, summary = rag_pipeline(query, conversation_history, summary)
