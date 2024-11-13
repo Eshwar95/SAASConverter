@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - saas-converter
+name: Build and deploy Python app to Azure Web App - SaasConverter
 
 on:
   push:
@@ -65,14 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1F559089263E4682B01B098770BA11B3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9B7A364EDFE8461AADD632AB125A3276 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6FDE67020DE44EB8B5D74C6196DE847B }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B32C573277AB4EF4AC9BBD8ACECF109D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_790676C479484E24A834B05AEA79061F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A268D420481F41CBA156C73DCA9CD199 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'saas-converter'
+          app-name: 'SaasConverter'
           slot-name: 'Production'
           
