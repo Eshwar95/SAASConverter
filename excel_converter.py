@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
 # Azure OpenAI API Configuration
-AZURE_API_KEY = "9c1a8daa826c4abab74f38cff791f231"
+AZURE_API_KEY = "test"
 AZURE_API_BASE = "https://myfirstopenaiplayground.openai.azure.com/"
 DEPLOYMENT_NAME = "gpt-35-turbo-16k"
 API_VERSION = "2024-06-01"
