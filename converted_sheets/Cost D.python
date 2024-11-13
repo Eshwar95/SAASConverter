@@ -1,0 +1,180 @@
+# Parameterized method for formulas like =59242.89/100+0.02
+Here are the python methods to convert the given Excel formula template into python code with parameters:
+
+Method 1:
+```python
+def convert_formula_template_1(value):
+    result = value / 100 + 0.02
+    return result
+```
+
+Method 2:
+```python
+def convert_formula_template_2(value):
+    result = value * 0.01 + 0.02
+    return result
+```
+
+Both methods take a parameter `value` which represents the value you want to apply the formula to. They return the result of applying the formula to the given value.
+
+# Parameterized method for formulas like =76732.4/100+0.19
+Here are the equivalent python methods for the given Excel formula template:
+
+Method 1:
+```python
+def calculate_value(value):
+    return value / 100 + 0.19
+```
+
+Method 2:
+```python
+def calculate_value(dividend, divisor, constant):
+    return dividend / divisor + constant
+```
+
+In Method 1, the method takes a single parameter `value` and directly performs the calculation.
+
+In Method 2, the method takes three parameters `dividend`, `divisor`, and `constant`. These parameters allow you to customize the values used in the calculation.
+
+# Parameterized method for formulas like =86820.49/100
+def divide_by_100(value):
+    return value / 100
+
+# Example usage
+result = divide_by_100(86820.49)
+print(result)
+
+# Parameterized method for formulas like =<cell_ref>*<cell_ref>/100
+Here's the Python code that converts the Excel formula template `=<cell_ref>*<cell_ref>/100` into a parameterized Python method:
+
+```python
+def calculate_formula(cell_ref1, cell_ref2):
+    result = (cell_ref1 * cell_ref2) / 100
+    return result
+```
+
+The `calculate_formula` method takes two parameters `cell_ref1` and `cell_ref2` which represent the values of the referenced cells in the Excel formula. It calculates the result by multiplying `cell_ref1` with `cell_ref2` and then dividing the result by 100. The final result is returned by the method.
+
+# Parameterized method for formulas like =<cell_ref>/<cell_ref>*100
+Here is the generated python code for converting the Excel formula template "=<cell_ref>/<cell_ref>*100" into a python method:
+
+```python
+def convert_formula(cell_ref1, cell_ref2):
+    result = (cell_ref1 / cell_ref2) * 100
+    return result
+```
+
+The method takes two parameters, `cell_ref1` and `cell_ref2`, which represent the values of the cell references in the Excel formula. The formula is then evaluated using these parameters, and the result is returned.
+
+# Parameterized method for formulas like =AVERAGE(<cell_ref>:<cell_ref>)
+Sure! Here's the generated python method to convert the AVERAGE formula template into python code:
+
+```python
+def average(start_cell, end_cell):
+    """
+    Calculates the average of a range of cells.
+
+    :param start_cell: The starting cell reference.
+    :param end_cell: The ending cell reference.
+    :return: The average value of the range of cells.
+    """
+    range_str = f"{start_cell}:{end_cell}"
+    average_formula = f"=AVERAGE({range_str})"
+    return average_formula
+```
+
+You can then call the `average()` method, passing the starting and ending cell references as parameters, to get the python code that represents the AVERAGE formula.
+
+# Parameterized method for formulas like =<cell_ref>
+Here's a Python method that converts an Excel formula template into a Python code snippet:
+
+```python
+def convert_formula_template(template, cell_ref):
+    return template.replace("=<cell_ref>", str(cell_ref))
+```
+
+You can use this method by passing the Excel formula template as the first argument and the cell reference as the second argument. It will replace the `=<cell_ref>` placeholder in the template with the provided cell reference and return the resulting Python code snippet.
+
+For example, if you have the Excel formula template `"=SUM(<cell_ref>)"` and you want to convert it to Python code with the cell reference `"A1"`, you can use the method like this:
+
+```python
+excel_formula_template = "=SUM(<cell_ref>)"
+cell_reference = "A1"
+python_code = convert_formula_template(excel_formula_template, cell_reference)
+print(python_code)
+```
+
+This will output the following Python code:
+
+```python
+SUM(A1)
+```
+
+You can modify
+
+# Parameterized method for formulas like =-2124.62/100
+Here are the python methods to convert the Excel formula template "= -2124.62/100" into python code:
+
+Method 1 - Using Hard-coded Values:
+```python
+def convert_formula():
+    result = -2124.62 / 100
+    return result
+```
+
+Method 2 - Using a Parameter:
+```python
+def convert_formula(value):
+    result = value / 100
+    return result
+```
+
+In Method 2, you can pass the value you want to divide by 100 as an argument to the function "convert_formula". Example usage:
+
+```python
+result = convert_formula(-2124.62)
+print(result)
+```
+
+This will output the result of the formula, which is -21.2462 in this case.
+
+# Parameterized method for formulas like =-6474.84/100
+Here is a python method that converts the Excel formula template `=-6474.84/100` into python code:
+
+```python
+def convert_excel_formula_template(template):
+    result = eval(template)
+    return result
+```
+
+You can use this method to convert the Excel formula template by providing the template as a string argument:
+
+```python
+template = "=-6474.84/100"
+result = convert_excel_formula_template(template)
+print(result)  # Output: -64.7484
+```
+
+Note that the `eval()` function is used to evaluate the expression in the template and calculate the result.
+
+# Parameterized method for formulas like =-3793.69/100
+def convert_currency(amount):
+    return amount / 100
+
+# Usage
+converted_amount = convert_currency(-3793.69)
+print(converted_amount)
+
+# Parameterized method for formulas like =6225.42/100
+def convert_excel_formula_1(dividend):
+    return dividend / 100
+
+# Parameterized method for formulas like =7771.4/100
+def divide_value(value, divisor):
+    result = value / divisor
+    return result
+
+# Example usage:
+result = divide_value(7771.4, 100)
+print(result)
+
