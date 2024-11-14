@@ -5,12 +5,12 @@ import CodeConversion as codeConvert
 import Documentation as doc_generator
 
 # Set page title and logo
-st.logo('Barclays_Logo.png')
-st.set_page_config(page_title="SASVerter", page_icon=":guardsman:", layout="wide")
+
+st.set_page_config(page_title="IP-Unlocker", page_icon=":guardsman:", layout="wide")
 
 # Function to display the login title and login form
 def login():
-    st.title('SASVerter Login')  # Display the title for the login page
+    st.title('IP-Unlocker Login')  # Display the title for the login page
     
     # Define valid credentials
     correct_username = "demo"
@@ -32,9 +32,9 @@ def login():
 
 # Function to display the home page content after login
 def run():
-    st.title('SASVerter')  # Display the main title after login
+    st.title('IP-Unlocker: Unlocking Intellectual Property from Legacy Tech!')  # Display the main title after login
     st.markdown("""
-    # Welcome to SASVerter!
+    # Welcome to IP-Unlocker!
     The ultimate tool for seamless code conversion, automated testing, and comprehensive documentation generation.
 
     **Features**:
@@ -42,14 +42,14 @@ def run():
     - **Unit Test Generation**: Automatically generate unit tests to ensure your code works as intended, saving you time and reducing errors.
     - **Documentation Creation**: Generate detailed and professional documentation for your code, making it easier to maintain and collaborate with your team.
     
-    Whether you’re migrating legacy code, optimizing your development process, or improving code quality, SASVerter simplifies your workflow, allowing you to focus on what truly matters—writing great software.
+    Whether you’re migrating legacy code, optimizing your development process, or improving code quality, IP-Unlocker simplifies your workflow, allowing you to focus on what truly matters—writing great software.
     Start now and streamline your coding journey today!
     """)
 
 # Sidebar navigation
 with st.sidebar:
     if 'logged_in' in st.session_state and st.session_state.logged_in:
-        app = option_menu(menu_title='SASVerter', options=['HomePage', 'Documentation Generator', 'Code Converter'], icons=['house-fill', 'book', 'laptop'])
+        app = option_menu(menu_title='IP-Unlocker', options=['HomePage', 'Documentation Generator', 'Code Converter'], icons=['house-fill', 'book', 'laptop'])
     else:
         app = None  # Skip the sidebar if the user is not logged in
 
@@ -88,4 +88,4 @@ def set_background(png_file):
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # Set background
-set_background('Background.png')
+# set_background('Background.png')

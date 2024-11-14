@@ -9,11 +9,12 @@ from openai.embeddings_utils import get_embedding
 from azure.core.credentials import AzureKeyCredential
 import time
 
-deployment_name="gpt-35-turbo-16k"
+deployment_name="gpt-35-turbo"
 openai.api_type = "azure"
-openai.api_key = "test" 
-openai.api_base = "https://test.openai.azure.com/"  
-openai.api_version = "2024-06-01"  
+openai.api_key = "" #os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
+openai.api_base = ""  # Replace with your Azure OpenAI endpoint
+openai.api_version = "2024-06-01"  # Ensure the API version matches the one in your Azure Portal
+
 
 if "AZURE_OPENAI_API_KEY" not in os.environ:
    os.environ["AZURE_OPENAI_API_KEY"] = "test"

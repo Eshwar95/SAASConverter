@@ -11,12 +11,14 @@ from collections import defaultdict
 import time
 import re
 
+
 # Azure OpenAI API Configuration
-deployment_name = "gpt-35-turbo"
+deployment_name="gpt-35-turbo"
 openai.api_type = "azure"
-openai.api_key = "test"  # Set your key here or from environment
-openai.api_base = "https://teste.com/"  # Replace with your Azure OpenAI endpoint
+openai.api_key = "" #os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
+openai.api_base = ""  # Replace with your Azure OpenAI endpoint
 openai.api_version = "2024-07-01-preview"  # Ensure the API version matches the one in your Azure Portal
+
 
 # Function to normalize formulas (optional, depending on the structure you want)
 def normalize_formula(formula):
@@ -30,7 +32,7 @@ def get_converted_code(formula_patterns, output_language):
             {"role": "system", "content": f"You are an AI that generates parameterized {output_language} code from Excel formula templates."},
             {"role": "user", "content": prompt}
         ],
-        "max_tokens": 200,
+        "max_tokens": 500,
         "temperature": 0.7
     }
 
@@ -126,7 +128,7 @@ def get_code_from_openai(content, language):
         response = openai.ChatCompletion.create(
             deployment_id=deployment_name,
             messages=messages,
-            max_tokens=200,
+            max_tokens=500,
             temperature=0.7
         )
         return response.choices[0].message['content'].strip()
@@ -137,7 +139,7 @@ def get_code_from_openai(content, language):
 # Generate unit tests
 def generate_unit_test(filecontent, language):
     try:
-        prompt = f"Generate unit tests for the following {language} code. Provide only the code without explanations:\n\n{filecontent}"
+        prompt = f"Generate positive and negative unit tests for the following {language} code. Provide only the code without explanations:\n\n{filecontent}"
         messages = [
             {"role": "system", "content": f"You are an AI that generates {language} unit tests."},
             {"role": "user", "content": prompt}
@@ -145,7 +147,7 @@ def generate_unit_test(filecontent, language):
         response = openai.ChatCompletion.create(
             deployment_id=deployment_name,
             messages=messages,
-            max_tokens=200,
+            max_tokens=500,
             temperature=0.7
         )
         return response.choices[0].message['content'].strip()

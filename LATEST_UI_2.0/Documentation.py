@@ -23,10 +23,9 @@ import zipfile
 # Set your OpenAI API key here
 deployment_name="gpt-35-turbo"
 openai.api_type = "azure"
-openai.api_key = "test" #os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
-openai.api_base = "https://test-test.com/"  # Replace with your Azure OpenAI endpoint
+openai.api_key = "" #os.getenv("AZURE_OPENAI_API_KEY")  # Alternatively, paste your key directly: "your_api_key"
+openai.api_base = ""  # Replace with your Azure OpenAI endpoint
 openai.api_version = "2024-07-01-preview"  # Ensure the API version matches the one in your Azure Portal
-
 
 
 
@@ -148,8 +147,8 @@ def app():
                     st.write("")  # Adds spacing between buttons
 					
     with tab2:
-        # print(1)
-        rag.app()
+        print(1)
+        #rag.app()
 
 			
 def generate_documents(extracted_files):
